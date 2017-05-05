@@ -222,11 +222,14 @@ var name;
 			document.getElementById("tprice3").innerHTML="Tk. ".concat(inttp3.toString());
 		}
 		function logout(){
+			document.getElementById("bill_button").classList.remove('active');
+           // document.getElementById("order_button").classList.remove('active');
+			document.getElementById("logout_button").classList.add('active');
 		xhttp = new XMLHttpRequest();
 			xhttp.onreadystatechange=function(){
 			console.log(this.readyState+" "+this.status+" "+xhttp.responseText);
 				if(this.readyState==4 && this.status==200){
-					window.location="registration.html";
+					window.location="index.html";
 					//str=xhttp.responseText;
 					//document.getElementById("username").innerHTML="Hello ".concat(str);
 				}
@@ -235,18 +238,27 @@ var name;
 			xhttp.open("GET","logout.php?",true);
 			xhttp.send();
 	}
+	function profile()
+	{
+		window.location="studentProfile.php";
+	}
 	</script>
 <style>
-body {margin: 50;}
+body {margin: 50;background-color: #D3D3D3;}
 table {
     border-collapse: collapse;
     width: 100%;
 }
-
+tr:nth-child(even){background-color: #f2f2f2}
 th, td {
     padding: 8px;
     text-align: left;
     border-bottom: 1px solid #ddd;
+	
+}
+th {
+    background-color: #4CAF50;
+    color: white;
 }
 
 tr:hover{background-color:#f5f5f5}
@@ -255,7 +267,8 @@ ul.sidenav {
     margin: 0;
     padding: 0;
     width: 20%;
-    background-color: #f1f1f1;
+    background-color: #333;
+	background-color: 	#2F4F4F;
     position: fixed;
     height: 100%;
     overflow: auto;
@@ -282,6 +295,7 @@ div.content {
     margin-left: 25%;
     padding: 10px 16px;
     height: 10000px; 
+	background-color: #D3D3D3;
 }
 
 @media screen and (max-width: 900px) {
@@ -323,10 +337,11 @@ div.content {
 <body onload="menu()">
 
 <ul class="sidenav">
-	<li><a  id="username">Hello <?php
+	<li><a  id="username" >Hello <?php
 		echo $_SESSION["username"];
 ?></a></li>
-  <li><a class="active" href="#home" id="order_button">Order food</a></li>
+  <!--<li><a class="active" href="#home" id="order_button">Order food</a></li>-->
+  <li><a href="javascript:profile()" id="profile">My Profile</a></li>
   <li><a href="javascript:billing()" id="bill_button">Billing</a></li>
    <li><a href="javascript:logout()" id="logout_button">Logout</a></li>
 </ul> 
@@ -337,11 +352,13 @@ div.content {
   <li><a href="">Rice with Beef...................50/-</a></li>
   <li><a href="">Rice with Rui Fish...............50/-</a></li>
 </ul> -->
+<div style="overflow-x:auto;">
 <table style="width:80%">
   <tr>
     <th>Item Name</th>
     <th>Price</th> 
 	<th>Quantity</th> 
+	<th>Total</th> 
   </tr>
   <tr>
     <td id="set1"></td>
@@ -365,6 +382,7 @@ div.content {
 	<td> <input type="radio" name="check" id="check3" value="checked3"> </td>
   </tr>
 </table>
+</div>
 <button class="button" id="place" onclick ="place()" >Place Order</button>
 
  <p id="showMessage"></p>

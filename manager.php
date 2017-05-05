@@ -23,14 +23,18 @@ exit(); }
 <script>
 	var signdisp='none',logindisp='none';
 var myIndex = 0,str,res;
-window.onload = getName();
+//window.onload = getName();
 function orderInfo(){
+	        document.getElementById("order_info_button").classList.add('active');
+            //document.getElementById("order_button").classList.remove('active');
+		    document.getElementById("logout_button").classList.remove('active');
 			xhttp = new XMLHttpRequest();
 			xhttp.onreadystatechange=function(){
 			console.log(this.readyState+" "+this.status+" "+xhttp.responseText);
 				if(this.readyState==4 && this.status==200){
 					str=xhttp.responseText;
-					res=str.split("-");					
+					res=str.split("-");		
+                    					
 					document.getElementById("showMessage").innerHTML=res[0].concat(" is ordered ").concat(res[1]).concat(" times").concat("<br>").
 					concat(res[2]).concat(" is ordered ").concat(res[3]).concat(" times").concat("<br>").
 					concat(res[4]).concat(" is ordered ").concat(res[5]).concat(" times");
@@ -40,19 +44,7 @@ function orderInfo(){
 			xhttp.open("GET","order_info.php?",true);
 			xhttp.send();
 	}
-	/*function getName(){
-			xhttp = new XMLHttpRequest();
-			xhttp.onreadystatechange=function(){
-			console.log(this.readyState+" "+this.status+" "+xhttp.responseText);
-				if(this.readyState==4 && this.status==200){
-					str=xhttp.responseText;
-					document.getElementById("username").innerHTML="Hello ".concat(str);
-				}
-					
-			};
-			xhttp.open("GET","username.php?",true);
-			xhttp.send();
-	}*/
+	
 	function student_billing(){
 		xhttp = new XMLHttpRequest();
 			xhttp.onreadystatechange=function(){
@@ -63,15 +55,17 @@ function orderInfo(){
 				}
 					
 			};
-			//xhttp.open("GET","username.php?",true);
+			xhttp.open("GET","username.php?",true);
 			//xhttp.send();
 	}
 	function logout(){
+		 document.getElementById("logout_button").classList.add('active');
+		  document.getElementById("order_info_button").classList.remove('active');
 		xhttp = new XMLHttpRequest();
 			xhttp.onreadystatechange=function(){
 			console.log(this.readyState+" "+this.status+" "+xhttp.responseText);
 				if(this.readyState==4 && this.status==200){
-					window.location="registration.html";
+					window.location="index.html";
 					//str=xhttp.responseText;
 					//document.getElementById("username").innerHTML="Hello ".concat(str);
 				}
@@ -102,58 +96,50 @@ function menuUpdate()
 					
 			};			
 			xhttp.open("POST", "menuorder.php", true);
-			xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			//xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+				xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 			xhttp.send("set1="+set1+"&price1="+price1+"&set2="+set2+"&price2="+price2+"&set3="+set3+"&price3="+price3);
 		//	xhttp.open("GET","menuorder.php?",true);
 			//xhttp.send();
 }	
-		
-function home()
+function studentInfo()
 {
-	div_show();
-	login_div_show();
+	xhttp = new XMLHttpRequest();
+	var regNumber=document.getElementById("regNumber").value;
+	var month=document.getElementById("month").value;
+			xhttp.onreadystatechange=function(){
+			
+			
+			//	document.getElementById("showMessage").innerHTML=set2;
+			console.log(this.readyState+" "+this.status+" "+xhttp.responseText);
+				if(this.readyState==4 && this.status==200){
+					str=xhttp.responseText;
+					//var obj = JSON.stringify(str);
+				     var obj = JSON.parse(str);
+					 document.getElementById("showBill").innerHTML="Student Name is ".concat(obj.name).concat(" and bill of month ").concat(month).concat(" is ").concat(obj.cost);
+					//document.getElementById("showBill").innerHTML=str;
+					//res=str.split("-");						
+				 //
+				// document.getElementById("showMessage").innerHTML=xhttp.responseText;
+				// document.getElementById("showBill").innerHTML="Student Name is ".concat(obj);
+				}
+					
+			};			
+			xhttp.open("POST", "billing_month.php", true);
+			xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			xhttp.send("regNumber="+regNumber+"&month="+month);
+		//	xhttp.open("GET","menuorder.php?",true);
+			//xhttp.send();
+}	
+function profile()
+{
+	window.location="managerProfile.php";
 }
 
-function checker(){
-			//window.open('signup.html');	
-		}
-		function showStyle() {
-			//signdisp='block';
-		//	logindisp='none';
-			//login_div_show();
-			//div_show();
-		}
-		function hideStyle() {
-			signdisp='none';
-			div_show();
-		}
-function div_show() {
-if(signdisp=='none')
-	document.getElementById('signform').style.display = "none";
-else
-	document.getElementById('signform').style.display = "block";
-}
-function login_div_show() {
-if(logindisp=='none')
-	document.getElementById('loginform').style.display = "none";
-else
-	document.getElementById('loginform').style.display = "block";
-}
-//Function to Hide Popup
-function showStyle2() {
-			logindisp='block';
-			signdisp='none';
-			div_show();
-			login_div_show();
-		}
-		function hideStyle2() {
-			logindisp='none';
-			login_div_show();
-		}
 
 </script>
 <style>
-body {margin: 50;}
+body {margin: 50;background-color: #D3D3D3;}
 
 ul.sidenav {
     list-style-type: none;
@@ -161,6 +147,7 @@ ul.sidenav {
     padding: 0;
     width: 20%;
     background-color: #f1f1f1;
+	background-color: #2F4F4F;
     position: fixed;
     height: 100%;
     overflow: auto;
@@ -186,6 +173,7 @@ ul.sidenav li a:hover:not(.active) {
 div.content {
     margin-left: 25%;
     padding: 10px 16px;
+	background-color: #D3D3D3;
    <!-- height: 1000px; -->
 }
 
@@ -236,10 +224,11 @@ div.content {
   <li><a  id="username">Hello <?php
 		echo $_SESSION["username"];
 ?></a></li>
-  <li><a class="active" href="javascript:showStyle()">Menu Create</a></li>
-  <li><a  href="javascript:orderInfo()">Order Information</a></li>
-  <li><a  href="javascript:studentInfo()">Student Information</a></li>
-  <li><a  href="javascript:logout()">Logout</a></li>
+<!--  <li><a class="active" href="javascript:showStyle()">Menu Create</a></li>-->
+<li><a href="javascript:profile()" id="profile">My Profile</a></li>
+  <li><a  href="javascript:orderInfo()" id="order_info_button">Order Information</a></li>
+ <!-- <li><a  href="javascript:studentInfo()">Student Information</a></li> -->
+  <li><a  href="javascript:logout()" id="logout_button">Logout</a></li>
 </ul> 
 
 
@@ -248,6 +237,7 @@ div.content {
 <h1>Create/Update FoodMenu</h1>
 <div id="menucreate">
 	<form action="menuorder.php" method="post"> 
+	
 	<div class="row1">
 			<label for="Set1">Set1:</label>
 			<input name="set1" id="set1" type="text" />
@@ -300,8 +290,10 @@ div.content {
   </datalist>
   <br>
   <div class="row5">
-  <button type="submit" name="st_info"  class="button"/>Student Bill</button>
+  <button type="submit" name="st_info" id="st_info" onclick ="studentInfo()" class="button"/>Student Bill</button>
   </div> 
+  <p id="showBill"></p>
+  <p id="showBill2"></p>
 	</div> 
 </div>
 </div>

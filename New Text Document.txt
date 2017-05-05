@@ -13,3 +13,5 @@
                             
                         </ul>
                     </li>-->
+
+.concat(" and bill of month ").concat(month).concat(" is").concat(obj.cost)
