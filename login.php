@@ -52,8 +52,11 @@
            // echo $sql;
 		}
 		else{
-			echo "<h1>Please Sign Up</h1>";
-			header("Location: registration.html"); 
+			echo  "<script>
+				alert('Incorrect email or password');
+				window.location.href='registration.html';
+				</script>";
+			//header("Location: registration.html"); 
 		}
 	  
 ?>

@@ -19,17 +19,26 @@
 			$sql = "INSERT INTO student_account VALUES('$name','$department','$regNumber','$email','$password','student');";
 			if(mysql_query($sql)===TRUE){
 				//include "showUser.html";
-				echo "<h1>Sign Up Succesfull</h1>";
+			//	echo "<h1>Sign Up Succesfull</h1>";
 				$_SESSION["email"] = $email;
 				$_SESSION["regNumber"] = $regNumber;
+				$_SESSION["username"] = $name;
+				header("Location: student.php"); 
 				//sendVerificationBySwift($email,$name,4669);
 				
 			}else{
-				echo "insertion failed";
+				echo "<script>
+				alert('insertion failed');
+				window.location.href='registration.html';
+				</script>";
 			}
 			}
-			else{
-				echo "email already exists";
+			else
+			{
+				echo "<script>
+				alert('email already exists');
+				window.location.href='registration.html';
+				</script>";
 			}
 			
 		}
