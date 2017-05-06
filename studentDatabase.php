@@ -21,9 +21,31 @@ exit(); }
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script type ="text/javascript">
-
-var str,res,inttp1,inttp2,inttp3;
-var name;
+window.onload = databaseShow();
+function databaseShow()
+{
+			xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange=function(){
+			console.log(this.readyState+" "+this.status+" "+xhttp.responseText);
+			//document.getElementById("showMessage").innerHTML=str;
+				if(this.readyState==4 && this.status==200){
+					//document.getElementById("showMessage").innerHTML=xhttp.responseText;
+					str=xhttp.responseText;
+					document.getElementById("studentDatabase").innerHTML=str;
+				}			
+			};
+			xhttp.open("GET","database_fetch.php?",true);
+			xhttp.send();
+}
+function userMain()
+{
+	window.location="manager.php";
+	
+}
+function profile()
+{
+	window.location="managerProfile.php";
+}
 function orderInfo(){
 	        document.getElementById("order_info_button").classList.add('active');
             //document.getElementById("order_button").classList.remove('active');
@@ -60,40 +82,6 @@ function orderInfo(){
 			xhttp.open("GET","logout.php?",true);
 			xhttp.send();
 	}
-function updatePassword()
-{
-	xhttp = new XMLHttpRequest();
-	var password=document.getElementById("password").value;
-	var repassword=document.getElementById("repassword").value;
-			xhttp.onreadystatechange=function(){
-			
-			
-			//	document.getElementById("showMessage").innerHTML=set2;
-			console.log(this.readyState+" "+this.status+" "+xhttp.responseText);
-				if(this.readyState==4 && this.status==200){
-					str=xhttp.responseText;
-					 document.getElementById("showMessage").innerHTML=str;				
-				}
-					
-			};			
-			xhttp.open("POST", "updatePassword.php", true);
-			xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-			xhttp.send("password="+password+"&repassword="+repassword);
-}
-function userMain()
-{
-	window.location="manager.php";
-	
-}
-function profile()
-{
-	window.location="managerProfile.php";
-}	
-function studentDatabase()
-{
-	window.location="studentDatabase.php";
-}
-	
 	</script>
 <style>
 body {margin: 50;background-color: #D3D3D3;}
@@ -194,28 +182,15 @@ div.content {
 <!--  <li><a class="active" href="javascript:showStyle()">Menu Create</a></li>-->
 <li><a href="javascript:profile()" id="profile">My Profile</a></li>
   <li><a  href="javascript:orderInfo()" id="order_info_button">Order Information</a></li>
-   <li><a  href="javascript:studentDatabase()" id="student_database_button">Student Database</a></li>
+  <li><a  href="javascript:studentDatabase()" id="student_database_button">Student Database</a></li>
  <!-- <li><a  href="javascript:studentInfo()">Student Information</a></li> -->
   <li><a  href="javascript:logout()" id="logout_button">Logout</a></li>
 </ul> 
 <div class="content">
- <div>
-<label>
- New Password
-</label>
-<br>
-<input type="password" name="password" id="password" required autocomplete="of"/>
-<br>
-<label>
- Retype Password
-</label>
-<br>
-<input type="password" name="repassword" id="repassword" required autocomplete="of"/>
-<br>
-<br>
-<button class="button" id="updatePass" onclick ="updatePassword()" >Update Password</button>
-</div>
-<p id="showMessage"></p>
+ <div style="overflow-x:auto;">
+<table style="width:80%" id="studentDatabase">
+</table>
+<div>
 <p id="showOrderInfo"></p>
 </div>
 

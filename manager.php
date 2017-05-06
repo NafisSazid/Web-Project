@@ -135,6 +135,10 @@ function profile()
 {
 	window.location="managerProfile.php";
 }
+function studentDatabase()
+{
+	window.location="studentDatabase.php";
+}
 
 
 </script>
@@ -199,7 +203,7 @@ div.content {
 .button {
     position:relative;
     top:50%; 
-    left:10%;
+    left:0%;
     margin: 0 auto;
     background-color: #4CAF50;
     border: none;
@@ -227,6 +231,7 @@ div.content {
 <!--  <li><a class="active" href="javascript:showStyle()">Menu Create</a></li>-->
 <li><a href="javascript:profile()" id="profile">My Profile</a></li>
   <li><a  href="javascript:orderInfo()" id="order_info_button">Order Information</a></li>
+  <li><a  href="javascript:studentDatabase()" id="student_database_button">Student Database</a></li>
  <!-- <li><a  href="javascript:studentInfo()">Student Information</a></li> -->
   <li><a  href="javascript:logout()" id="logout_button">Logout</a></li>
 </ul> 
@@ -262,7 +267,7 @@ div.content {
 	</div>
 	<br>
 	<div class="row4">
-		<button type="submit" name="update"  class="button"/>Update Menu</button>
+		<button type="submit" name="update"  class="button"  style="left:20%" >Update Menu</button>
 	 </div>
 	</form> 
 </div>
@@ -270,9 +275,11 @@ div.content {
  <p id="showMessage"></p>
 <div class="billingCheck">
 			<label for="registrationNumber">RegistrationNumber:</label>
+			<br>
 			<input name="regNumber" id="regNumber" type="text" />
 			<br>
 			<label for="Month">Month:</label>
+			<br>
 			<input list="months" name="month" id="month">
   <datalist id="months">
     <option value="January">
@@ -290,6 +297,7 @@ div.content {
   </datalist>
   <br>
   <div class="row5">
+  <br>
   <button type="submit" name="st_info" id="st_info" onclick ="studentInfo()" class="button"/>Student Bill</button>
   </div> 
   <p id="showBill"></p>
