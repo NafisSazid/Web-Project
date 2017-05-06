@@ -3,10 +3,10 @@
 		session_start();
 		//if(isset($_POST['order'])){
 		//$conn = mysql_connect('localhost', 'root', '');
-		//$db   = mysql_select_db('meal_management');
+		//$db   = mysql_select_db('smarthall');
 	//	$conn = mysql_connect('localhost', 'root', '');
-	//	$db   = mysql_select_db('meal_management');
-		$con = mysqli_connect('localhost', 'root', '','meal_management');
+	//	$db   = mysql_select_db('smarthall');
+		$con = mysqli_connect('localhost', 'root', '','smarthall');
 		$email="";
 		if(isset($_SESSION['email'])) {	
 		$email=$_SESSION["email"] ;

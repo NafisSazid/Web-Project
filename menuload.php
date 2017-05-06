@@ -1,6 +1,6 @@
 <?php
 
-		$con = mysqli_connect('localhost', 'root', '','meal_management');
+		$con = mysqli_connect('localhost', 'root', '','smarthall');
 		//$value = $_GET['name'];
 		//echo $value;
 		

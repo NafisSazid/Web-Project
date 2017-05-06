@@ -1,7 +1,7 @@
 <?php
 session_id('mySessionID');	
 session_start();
-$con = mysqli_connect('localhost', 'root', '','meal_management');
+$con = mysqli_connect('localhost', 'root', '','smarthall');
 $category;
 if(!isset($_SESSION["email"])){
 header("Location: registration.html");

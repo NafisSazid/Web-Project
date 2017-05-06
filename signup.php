@@ -3,7 +3,7 @@
 	  session_start();
 	  if(isset($_POST['signup'])){
 		$conn = mysql_connect('localhost', 'root', '');
-		$db   = mysql_select_db('meal_management');
+		$db   = mysql_select_db('smarthall');
 		$name = $_POST["name"];
 		$password = $_POST["password"];
 		$email = $_POST["email"];

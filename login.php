@@ -3,8 +3,8 @@
 		session_id('mySessionID');
 		session_start();
 		//$conn = mysql_connect('localhost', 'root', '');
-		//$db   = mysql_select_db('meal_management');
-		$con = mysqli_connect('localhost', 'root', '','meal_management');
+		//$db   = mysql_select_db('smarthall');
+		$con = mysqli_connect('localhost', 'root', '','smarthall');
 		$email = $_POST["email"];
 		$password = $_POST["password"];
 		
