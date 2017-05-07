@@ -5,6 +5,7 @@
 	//	$set1 = $_POST['set1'];
 	//	$set2 = $_POST['set2'];
 		//$set3 = $_POST['set3'];
+		date_default_timezone_set("Asia/Dhaka");
 		$date = date("Y-m-d");
 		
 		$sql ="select set1 from menu;";
