@@ -55,6 +55,7 @@
 		{
 			$m="12";
 		}
+		date_default_timezone_set("Asia/Dhaka");
 		$date = date("Y-m-d");
 		$ym=substr($date,0,5);
 		
