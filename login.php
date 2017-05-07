@@ -2,9 +2,10 @@
 <?php
 		session_id('mySessionID');
 		session_start();
-		//$conn = mysql_connect('localhost', 'root', '');
+		//$conn = mysql_connect('localhost', 'smarthall', 'smarthall');
 		//$db   = mysql_select_db('smarthall');
-		$con = mysqli_connect('localhost', 'root', '','smarthall');
+		//$con = mysqli_connect('localhost', 'smarthall', 'smarthall','smarthall');
+		$con = mysqli_connect('localhost', 'smarthall', 'smarthall','smarthall');
 		$email = $_POST["email"];
 		$password = $_POST["password"];
 		
