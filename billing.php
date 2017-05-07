@@ -6,7 +6,7 @@
 		if(isset($_SESSION['email'])) {	
 		$email=$_SESSION["email"] ;
 		}
-		$date = date("Y-m-d");
+		$date = date_default_timezone_set("Y-m-d");
 		$ym=substr($date,0,8);
 		$sql="SELECT Cost FROM foodorder where Email='$email' AND date like '".$ym."%';";
 		$result = $con->query($sql);
