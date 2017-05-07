@@ -1,14 +1,14 @@
-
 <?php
 	  session_start();
 	  if(isset($_POST['signup'])){
-		$conn = mysql_connect('localhost', 'root', '');
-		$db   = mysql_select_db('meal_management');
+		$conn = mysql_connect('localhost', 'smarthall', 'smarthall');
+		$db   = mysql_select_db('smarthall');
 		$name = $_POST["name"];
 		$password = $_POST["password"];
 		$email = $_POST["email"];
 		$regNumber = $_POST["regNumber"];
 		$department = $_POST["department"];
+		$hash1 = md5( rand(1000,10000));
 		
 		if(isset($name)&&isset($password)&&isset($email)&&isset($regNumber)&&isset($department)){
 			$sql="SELECT * FROM student_account where Email='$email'";
@@ -24,7 +24,7 @@
 				$_SESSION["regNumber"] = $regNumber;
 				$_SESSION["username"] = $name;
 				header("Location: student.php"); 
-				//sendVerificationBySwift($email,$name,4669);
+				sendVerificationBySwift($email,$name,$hash1);
 				
 			}else{
 				echo "<script>
@@ -43,66 +43,32 @@
 			
 		}
 	  }
-	  function sendVerificationBySwift($email,$name,$id)
+	  
+	 function sendVerificationBySwift($email,$name,$id)
 {
     require_once 'lib/swift_required.php';
-
     $subject = 'Hall Management Signup | Verification'; // Give the email a subject
-    $address="http://103.28.121.126/verify?email=".$email."&hash=".$id;
+   // $address="http://csedu.cf/smarthall/mail_verify?email".$email."&hash=".$id;
     $body = '
  
 Thanks for signing up!
-Your account has been created, you can login with the following credentials after you have activated your account by pressing the url below.
+Your account has been created, you can login with the following credentials.
  
 ------------------------
-Username: '.$name.'
+email: '.$email.'
+password: '.$password'
 ------------------------
  
-Please click this link to activate your account:.
- '.$address;
-
         $transport = Swift_SmtpTransport::newInstance('smtp.gmail.com', 465, "ssl")
-            ->setUsername('yourmail@gmail.com')
-            ->setPassword('yourpassword')
+            ->setUsername('smarthall.du@gmail.com')
+            ->setPassword('smarthall')
             ->setEncryption('ssl');
-
         $mailer = Swift_Mailer::newInstance($transport);
-
         $message = Swift_Message::newInstance($subject)
-            ->setFrom(array('noreply@lalbus.com' => 'Lalbus'))
+            ->setFrom(array('noreply@smarthall.du.com' => 'smarthall'))
             ->setTo(array($email))
             ->setBody($body);
-
         $result = $mailer->send($message);
 }
 	  
-	  
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
