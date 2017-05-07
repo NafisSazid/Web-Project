@@ -114,14 +114,10 @@ function studentInfo()
 			console.log(this.readyState+" "+this.status+" "+xhttp.responseText);
 				if(this.readyState==4 && this.status==200){
 					str=xhttp.responseText;
-					var obj = JSON.stringify(str);
-				    var obj2 = JSON.parse(obj);
+					//var obj = JSON.stringify(str);
+				    var obj2 = JSON.parse(str);
 					 document.getElementById("showBill").innerHTML="Student Name is ".concat(obj2.name).concat(" and bill of month ").concat(month).concat(" is ").concat(obj2.cost);
-					//document.getElementById("showBill").innerHTML=str;
-					//res=str.split("-");						
-				 //
-				// document.getElementById("showMessage").innerHTML=xhttp.responseText;
-				// document.getElementById("showBill").innerHTML="Student Name is ".concat(obj);
+					
 				}
 					
 			};			
