@@ -24,7 +24,7 @@
 				$_SESSION["regNumber"] = $regNumber;
 				$_SESSION["username"] = $name;
 				header("Location: student.php"); 
-				sendVerificationBySwift($email,$name,$hash1);
+				//sendVerificationBySwift($email,$name,$hash1);
 				
 			}else{
 				echo "<script>
