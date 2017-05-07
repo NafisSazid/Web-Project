@@ -15,3 +15,5 @@
                     </li>-->
 
 .concat(" and bill of month ").concat(month).concat(" is").concat(obj.cost)
+
+delete FROM `student_account` WHERE Email='nafissazid4820@gmail.com'
