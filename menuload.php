@@ -1,6 +1,6 @@
 <?php
 
-		$con = mysqli_connect('localhost', 'root', '','smarthall');
+		$con = mysqli_connect('localhost', 'smarthall', 'smarthall','smarthall');
 		//$value = $_GET['name'];
 		//echo $value;
 		

@@ -2,7 +2,7 @@
 <?php
 	  session_start();
 	  if(isset($_POST['signup'])){
-		$conn = mysql_connect('localhost', 'root', '');
+		$conn = mysql_connect('localhost', 'smarthall', 'smarthall');
 		$db   = mysql_select_db('smarthall');
 		$name = $_POST["name"];
 		$password = $_POST["password"];

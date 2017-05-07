@@ -4,7 +4,7 @@
 		//if(isset($_POST['order'])){
 		//$conn = mysql_connect('localhost', 'root', '');
 		//$db   = mysql_select_db('smarthall');
-		$conn = mysql_connect('localhost', 'root', '');
+		$conn = mysql_connect('localhost', 'smarthall', 'smarthall');
 		$db   = mysql_select_db('smarthall');
 		$email="";
 		if(isset($_SESSION['email'])) {	

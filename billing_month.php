@@ -1,7 +1,7 @@
 <?php
 		session_id('mySessionID');
 		session_start();
-		$con = mysqli_connect('localhost', 'root', '','smarthall');
+		$con = mysqli_connect('localhost', 'smarthall', 'smarthall','smarthall');
 		$email="";
 		$m="00";
 		$regNumber=$_POST['regNumber'];

@@ -6,7 +6,7 @@
 		//$db   = mysql_select_db('smarthall');
 	//	$conn = mysql_connect('localhost', 'root', '');
 	//	$db   = mysql_select_db('smarthall');
-		$con = mysqli_connect('localhost', 'root', '','smarthall');
+		$con = mysqli_connect('localhost', 'smarthall','smarthall','smarthall');
 		$email="";
 		if(isset($_SESSION['email'])) {	
 		$email=$_SESSION["email"] ;

@@ -3,7 +3,7 @@
 		session_start();
 		//$conn = mysql_connect('localhost', 'root', '');
 		//$db   = mysql_select_db('smarthall');
-		$con = mysqli_connect('localhost', 'root', '','smarthall');
+		$con = mysqli_connect('localhost', 'smarthall', 'smarthall','smarthall');
 		$item = $_POST['food'];
 		$quantity = $_POST['quantity'];
 		$cost = $_POST['cost'];

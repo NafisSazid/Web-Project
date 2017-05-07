@@ -1,7 +1,7 @@
 <?php
 		session_id('mySessionID');
 		session_start();
-		$con = mysqli_connect('localhost', 'root', '','smarthall');
+		$con = mysqli_connect('localhost', 'smarthall', 'smarthall','smarthall');
 	//	$set1 = $_POST['set1'];
 	//	$set2 = $_POST['set2'];
 		//$set3 = $_POST['set3'];
