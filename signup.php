@@ -56,6 +56,7 @@ Your account has been created, you can login with the following credentials .
  
 ------------------------
 Username: '.$name.'
+Email: '.$email.'
 Password: '.$password.'
 ------------------------
  
@@ -69,7 +70,7 @@ Password: '.$password.'
         $mailer = Swift_Mailer::newInstance($transport);
 
         $message = Swift_Message::newInstance($subject)
-            ->setFrom(array('noreply@lalbus.com' => 'Lalbus'))
+            ->setFrom(array('noreply@smarthall.du@gmail.com' => 'Smarthall'))
             ->setTo(array($email))
             ->setBody($body);
 
