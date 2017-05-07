@@ -44,36 +44,35 @@
 		}
 	  }
 	  
-	 function sendVerificationBySwift($email,$name,$id)
+	function sendVerificationBySwift($email,$name,$id)
 {
     require_once 'lib/swift_required.php';
-    $subject = 'Hall Management Signup | Verification'; // Give the email a subject
-   // $address="http://csedu.cf/smarthall/mail_verify?email".$email."&hash=".$id;
+
+    $subject = 'Smarthall Signup '; // Give the email a subject
     $body = '
  
 Thanks for signing up!
-Your account has been created, you can login with the following credentials.
+Your account has been created, you can login with the following credentials .
  
 ------------------------
-email: '.$email.'
-password: '.$password'
-
+Username: '.$name.'
+Password: '.$password.'
 ------------------------
  
-
  ';
-
-
 
         $transport = Swift_SmtpTransport::newInstance('smtp.gmail.com', 465, "ssl")
             ->setUsername('smarthall.du@gmail.com')
             ->setPassword('smarthall')
             ->setEncryption('ssl');
+
         $mailer = Swift_Mailer::newInstance($transport);
+
         $message = Swift_Message::newInstance($subject)
-            ->setFrom(array('noreply@smarthall.du.com' => 'smarthall'))
+            ->setFrom(array('noreply@lalbus.com' => 'Lalbus'))
             ->setTo(array($email))
             ->setBody($body);
+
         $result = $mailer->send($message);
 }
 	  
