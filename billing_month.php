@@ -55,7 +55,7 @@
 		{
 			$m="12";
 		}
-		$date = date_default_timezone_set("Y-m-d");
+		$date = date("Y-m-d");
 		$ym=substr($date,0,5);
 		
 		$ym.=$m;
