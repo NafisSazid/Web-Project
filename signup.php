@@ -50,14 +50,15 @@
     require_once 'lib/swift_required.php';
 
     $subject = 'Hall Management Signup | Verification'; // Give the email a subject
-    $address="http://csedu.cf/smarthall/mail_verify?email".$email."&hash=".$id;
+   // $address="http://csedu.cf/smarthall/mail_verify?email".$email."&hash=".$id;
     $body = '
  
 Thanks for signing up!
-Your account has been created, you can login with the following credentials after you have activated your account by pressing the url below.
+Your account has been created, you can login with the following credentials.
  
 ------------------------
-Username: '.$name.'
+email: '.$email.'
+password: '.$password'
 ------------------------
  
 Please click this link to activate your account:.
