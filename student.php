@@ -1,7 +1,7 @@
 <?php
 session_id('mySessionID');	
 session_start();
-$con = mysqli_connect('localhost', 'root', '','meal_management');
+$con = mysqli_connect('localhost', 'smarthall', 'smarthall','smarthall');
 $category;
 if(!isset($_SESSION["email"])){
 header("Location: registration.html");
@@ -352,6 +352,7 @@ div.content {
   <li><a href="">Rice with Beef...................50/-</a></li>
   <li><a href="">Rice with Rui Fish...............50/-</a></li>
 </ul> -->
+<h1>Food menu for today is</h1>
 <div style="overflow-x:auto;">
 <table style="width:80%">
   <tr>

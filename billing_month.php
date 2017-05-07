@@ -1,7 +1,7 @@
 <?php
 		session_id('mySessionID');
 		session_start();
-		$con = mysqli_connect('localhost', 'root', '','meal_management');
+		$con = mysqli_connect('localhost', 'smarthall', 'smarthall','smarthall');
 		$email="";
 		$m="00";
 		$regNumber=$_POST['regNumber'];
@@ -55,6 +55,7 @@
 		{
 			$m="12";
 		}
+		date_default_timezone_set("Asia/Dhaka");
 		$date = date("Y-m-d");
 		$ym=substr($date,0,5);
 		

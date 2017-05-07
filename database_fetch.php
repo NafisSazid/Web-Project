@@ -1,7 +1,7 @@
 <?php
 		session_id('mySessionID');
 		session_start();
-		$con = mysqli_connect('localhost', 'root', '','meal_management');
+		$con = mysqli_connect('localhost', 'smarthall', 'smarthall','smarthall');
 		$email="";
 		if(isset($_SESSION['email'])) {	
 		$email=$_SESSION["email"] ;

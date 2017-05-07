@@ -57,7 +57,11 @@ Your account has been created, you can login with the following credentials.
 ------------------------
 email: '.$email.'
 password: '.$password'
+<<<<<<< HEAD
 ------------------------';
+=======
+------------------------
+>>>>>>> bbb515e7d00851c6be35e9053344e88c7ada90b9
  
         $transport = Swift_SmtpTransport::newInstance('smtp.gmail.com', 465, "ssl")
             ->setUsername('smarthall.du@gmail.com')
