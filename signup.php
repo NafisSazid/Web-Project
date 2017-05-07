@@ -61,8 +61,8 @@ email: '.$email.'
 password: '.$password'
 ------------------------
  
-Please click this link to activate your account:.
- '.$address;
+
+ ';
 
         $transport = Swift_SmtpTransport::newInstance('smtp.gmail.com', 465, "ssl")
             ->setUsername('smarthall.du@gmail.com')
