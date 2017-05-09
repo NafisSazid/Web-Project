@@ -268,8 +268,9 @@ div.content {
 	</form> 
 </div>
 <div id="order_info">
- <p id="showMessage"></p>
+
 <div class="billingCheck">
+<h1>Search for billing information of any students using Registration Number</h1>
 			<label for="registrationNumber">RegistrationNumber:</label>
 			<br>
 			<input name="regNumber" id="regNumber" type="text" />
@@ -298,6 +299,7 @@ div.content {
   </div> 
   <p id="showBill"></p>
   <p id="showBill2"></p>
+   <p id="showMessage"></p>
 	</div> 
 </div>
 </div>
